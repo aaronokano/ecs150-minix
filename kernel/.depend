@@ -20,6 +20,7 @@ clock.o:	/usr/include/timers.h
 clock.o:	clock.c
 clock.o:	config.h
 clock.o:	const.h
+clock.o:	debug.h
 clock.o:	glo.h
 clock.o:	ipc.h
 clock.o:	kernel.h
@@ -29,6 +30,35 @@ clock.o:	protect.h
 clock.o:	proto.h
 clock.o:	type.h
 
+debug.o:	/usr/include/ansi.h
+debug.o:	/usr/include/errno.h
+debug.o:	/usr/include/ibm/bios.h
+debug.o:	/usr/include/ibm/cpu.h
+debug.o:	/usr/include/ibm/interrupt.h
+debug.o:	/usr/include/ibm/portio.h
+debug.o:	/usr/include/ibm/ports.h
+debug.o:	/usr/include/limits.h
+debug.o:	/usr/include/minix/com.h
+debug.o:	/usr/include/minix/config.h
+debug.o:	/usr/include/minix/const.h
+debug.o:	/usr/include/minix/ipc.h
+debug.o:	/usr/include/minix/sys_config.h
+debug.o:	/usr/include/minix/type.h
+debug.o:	/usr/include/sys/dir.h
+debug.o:	/usr/include/sys/types.h
+debug.o:	/usr/include/timers.h
+debug.o:	config.h
+debug.o:	const.h
+debug.o:	debug.c
+debug.o:	debug.h
+debug.o:	glo.h
+debug.o:	ipc.h
+debug.o:	kernel.h
+debug.o:	priv.h
+debug.o:	proc.h
+debug.o:	protect.h
+debug.o:	proto.h
+debug.o:	type.h
 
 exception.o:	/usr/include/ansi.h
 exception.o:	/usr/include/errno.h
@@ -50,6 +80,7 @@ exception.o:	/usr/include/sys/types.h
 exception.o:	/usr/include/timers.h
 exception.o:	config.h
 exception.o:	const.h
+exception.o:	debug.h
 exception.o:	exception.c
 exception.o:	glo.h
 exception.o:	ipc.h
@@ -79,6 +110,7 @@ i8259.o:	/usr/include/sys/types.h
 i8259.o:	/usr/include/timers.h
 i8259.o:	config.h
 i8259.o:	const.h
+i8259.o:	debug.h
 i8259.o:	glo.h
 i8259.o:	i8259.c
 i8259.o:	ipc.h
@@ -113,6 +145,7 @@ main.o:	/usr/include/timers.h
 main.o:	/usr/include/unistd.h
 main.o:	config.h
 main.o:	const.h
+main.o:	debug.h
 main.o:	glo.h
 main.o:	ipc.h
 main.o:	kernel.h
@@ -143,6 +176,7 @@ proc.o:	/usr/include/sys/types.h
 proc.o:	/usr/include/timers.h
 proc.o:	config.h
 proc.o:	const.h
+proc.o:	debug.h
 proc.o:	glo.h
 proc.o:	ipc.h
 proc.o:	kernel.h
@@ -172,6 +206,7 @@ protect.o:	/usr/include/sys/types.h
 protect.o:	/usr/include/timers.h
 protect.o:	config.h
 protect.o:	const.h
+protect.o:	debug.h
 protect.o:	glo.h
 protect.o:	ipc.h
 protect.o:	kernel.h
@@ -203,6 +238,7 @@ start.o:	/usr/include/sys/types.h
 start.o:	/usr/include/timers.h
 start.o:	config.h
 start.o:	const.h
+start.o:	debug.h
 start.o:	glo.h
 start.o:	ipc.h
 start.o:	kernel.h
@@ -237,6 +273,7 @@ system.o:	/usr/include/timers.h
 system.o:	/usr/include/unistd.h
 system.o:	config.h
 system.o:	const.h
+system.o:	debug.h
 system.o:	glo.h
 system.o:	ipc.h
 system.o:	kernel.h
@@ -268,6 +305,7 @@ table.o:	/usr/include/sys/types.h
 table.o:	/usr/include/timers.h
 table.o:	config.h
 table.o:	const.h
+table.o:	debug.h
 table.o:	glo.h
 table.o:	ipc.h
 table.o:	kernel.h
@@ -302,6 +340,7 @@ utility.o:	/usr/include/timers.h
 utility.o:	/usr/include/unistd.h
 utility.o:	config.h
 utility.o:	const.h
+utility.o:	debug.h
 utility.o:	glo.h
 utility.o:	ipc.h
 utility.o:	kernel.h
