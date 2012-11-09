@@ -28,6 +28,20 @@ PUBLIC struct priv priv[NR_SYS_PROCS];
 PUBLIC struct boot_image image[NR_BOOT_PROCS];
 
 /*===========================================================================*
+ *				ttime_dmp 				     *
+ *===========================================================================*/
+PUBLIC void ttime_dmp()
+{
+  int i;
+  printf("User time for each process:\n");
+  for( i = 0; i < NR_TASKS + NR_PROCS; i++ ) {
+    if( proc[i].p_rts_flags != SLOT_FREE ) {
+      printf("User time: %ld\n", proc[i].p_user_time);
+   }
+ }
+}
+
+/*===========================================================================*
  *				timing_dmp				     *
  *===========================================================================*/
 PUBLIC void timing_dmp()
