@@ -197,6 +197,7 @@ irq_hook_t *hook;
    * Thus the unbillable process' user time is the billable user's system time.
    */
   proc_ptr->p_user_time += ticks;
+  proc_ptr->p_total_time = realtime - proc_ptr->p_start_time;
   if (priv(proc_ptr)->s_flags & PREEMPTIBLE) {
       proc_ptr->p_ticks_left -= ticks;
   }

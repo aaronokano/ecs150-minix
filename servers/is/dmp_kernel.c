@@ -32,11 +32,22 @@ PUBLIC struct boot_image image[NR_BOOT_PROCS];
  *===========================================================================*/
 PUBLIC void ttime_dmp()
 {
-  int i;
-  printf("User time for each process:\n");
-  for( i = 0; i < NR_TASKS + NR_PROCS; i++ ) {
-    if( proc[i].p_rts_flags != SLOT_FREE ) {
-      printf("User time: %ld\n", proc[i].p_user_time);
+  register struct proc *rp;
+  static struct proc *oldrp = BEG_PROC_ADDR;
+  int r, n = 0;
+
+  /* Need to get current proc table first */
+  if( ( r = sys_getproctab(proc) ) != OK ) {
+    report("IS","warning: couldn't get copy of process table", r );
+    return;
+  }
+
+  printf("Total time for each process:\n");
+  for( rp = oldrp; rp < END_PROC_ADDR; rp++ ) {
+    if( isemptyp( rp ) ) continue;
+    if( ++n > 23 ) break;
+    if( rp->p_rts_flags != SLOT_FREE ) {
+      printf("%s: %ld\n", rp->p_name, rp->p_total_time);
    }
  }
 }
@@ -44,18 +55,27 @@ PUBLIC void ttime_dmp()
 /*===========================================================================*
 				syscall_dmp				     *
 *============================================================================*/
-
 PUBLIC void syscall_dmp()
 {
-  int i;
-  printf("Number of system calls for each process:\n");
-  for( i = 0; i < NR_TASKS + NR_PROCS; i++ ) {
-    if( proc[i].p_rts_flags != SLOT_FREE ) {
-      printf("Number of System Calls: %d\n", proc[i].num_call);
-    }
-  }
-}
+  register struct proc *rp;
+  static struct proc *oldrp = BEG_PROC_ADDR;
+  int r, n = 0;
 
+  /* Need to get current proc table first */
+  if( ( r = sys_getproctab(proc) ) != OK ) {
+    report("IS","warning: couldn't get copy of process table", r );
+    return;
+  }
+
+  printf("System calls for each process:\n");
+  for( rp = oldrp; rp < END_PROC_ADDR; rp++ ) {
+    if( isemptyp( rp ) ) continue;
+    if( ++n > 23 ) break;
+    if( rp->p_rts_flags != SLOT_FREE ) {
+      printf("%s: %d\n", rp->p_name, rp->p_sys_calls);
+   }
+ }
+}
 /*===========================================================================*
  *				timing_dmp				     *
  *===========================================================================*/

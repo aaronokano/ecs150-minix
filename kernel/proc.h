@@ -50,7 +50,9 @@ struct proc {
   sigset_t p_pending;		/* bit map for pending kernel signals */
 
   char p_name[P_NAME_LEN];	/* name of the process, including \0 */
-  int num_call;			/*Number of system calls */
+  clock_t p_total_time;         /* total time process has been running */
+  clock_t p_start_time;         /* time process began execution */
+  int p_sys_calls;              /* number of system calls made */
 #if DEBUG_SCHED_CHECK
   int p_ready, p_found;
 #endif

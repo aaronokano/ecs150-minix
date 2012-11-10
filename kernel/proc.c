@@ -156,6 +156,9 @@ message *m_ptr;			/* pointer to message in the caller's space */
       }
   }
 
+  /* Increment counter of number of syscalls */
+  caller_ptr->p_sys_calls++;
+
   /* Now check if the call is known and try to perform the request. The only
    * system calls that exist in MINIX are sending and receiving messages.
    *   - SENDREC: combines SEND and RECEIVE in a single system call
