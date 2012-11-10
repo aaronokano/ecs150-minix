@@ -1,5 +1,0 @@
-#!/bin/sh
-binsizes big
-make clean
-make && make install
-binsizes normal

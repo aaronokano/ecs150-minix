@@ -1,6 +1,0 @@
-#!/bin/sh
-chmem +50000 /bin/sh
-./configure
-make && make install
-chmem -50000 /bin/sh
-
