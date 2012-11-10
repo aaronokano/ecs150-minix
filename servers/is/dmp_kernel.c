@@ -42,6 +42,21 @@ PUBLIC void ttime_dmp()
 }
 
 /*===========================================================================*
+				syscall_dmp				     *
+*============================================================================*/
+
+PUBLIC void syscall_dmp()
+{
+  int i;
+  printf("Number of system calls for each process:\n");
+  for( i = 0; i < NR_TASKS + NR_PROCS; i++ ) {
+    if( proc[i].p_rts_flags != SLOT_FREE ) {
+      printf("Number of System Calls: %d\n", proc[i].num_call);
+    }
+  }
+}
+
+/*===========================================================================*
  *				timing_dmp				     *
  *===========================================================================*/
 PUBLIC void timing_dmp()
