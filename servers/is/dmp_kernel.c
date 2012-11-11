@@ -35,6 +35,7 @@ PUBLIC void ttime_dmp()
   register struct proc *rp;
   static struct proc *oldrp = BEG_PROC_ADDR;
   int r, n = 0;
+  printf("%d\n",oldrp);
 
   /* Need to get current proc table first */
   if( ( r = sys_getproctab(proc) ) != OK ) {
@@ -50,6 +51,9 @@ PUBLIC void ttime_dmp()
       printf("%s: %ld\n", rp->p_name, rp->p_total_time);
    }
  }
+ if (rp == END_PROC_ADDR) rp = BEG_PROC_ADDR; else printf("--more--\r");
+ printf("%d,%d\n",rp,END_PROC_ADDR);
+ oldrp = rp;
 }
 
 /*===========================================================================*
@@ -73,8 +77,10 @@ PUBLIC void syscall_dmp()
     if( ++n > 23 ) break;
     if( rp->p_rts_flags != SLOT_FREE ) {
       printf("%s: %d\n", rp->p_name, rp->p_sys_calls);
-   }
- }
+    }
+  } 
+  if (rp == END_PROC_ADDR) rp = BEG_PROC_ADDR; else printf("--more--\r");
+  oldrp = rp;
 }
 /*===========================================================================*
  *				timing_dmp				     *
